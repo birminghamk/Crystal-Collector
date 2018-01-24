@@ -1,0 +1,70 @@
+body {
+	background: url("https://previews.123rf.com/images/kgtoh/kgtoh1001/kgtoh100101279/6165567-colorful-retro-patterns-geometric-design-vintage-wallpaper-seamless-background.jpg");
+	margin-left: 10px;
+}
+* {
+  box-sizing: border-box;
+}
+.clearfix {
+	content: " ";
+	display: block;
+	clear: both;
+}
+
+h1 {
+	background-color: orange;
+	color: white;
+	padding: 30px 0px;
+	width: 37%;
+	margin-right: 500px;
+}
+.p-container {
+	background-color: tan;
+	color: green;
+	font-weight: bold;
+	padding-bottom: 100px;
+	padding-top: 30px;
+	margin-bottom: 20px;
+	width: 50%;
+}
+.randomNumber {
+	background-color: green;
+	color: purple;
+	padding-bottom: 100px;
+	padding-right: 200px;
+	margin-bottom: 20px;
+	float: left;
+}
+.scoreKeeper {
+	background-color: lightblue;
+	color: green;
+	padding-top: 20px;
+	padding-bottom: 80px;
+	float: left;
+	margin-left: 10px;
+}
+div img {
+	overflow: auto;
+	height: 100px;
+	width: 100px;
+	margin-right: 10px;
+	margin-top: 10px;
+}
+.totalScore {
+	background-color: darkgreen;
+	color: white;
+	margin-top: 10px;
+	margin-bottom: 20px;
+	width: 25%;
+
+}
+.scoreDisplay {
+	background-color: darkgreen;
+	color: white;
+	font-size: 50px;
+	width: 25%;
+	padding-bottom: 80px;
+}
+
+
+
