@@ -5,6 +5,8 @@
 
 	<title>Crystals Collector!</title>
 	
+	<link rel="stylesheet" href="assets/css/reset.css">
+	
 	<link rel="stylesheet" text="style/css" href="assets/css/style.css">
 	
 	<script
@@ -16,49 +18,57 @@
 	<script src="assets/javascript/game.js"></script>
 </head>
 <body>
-	<h1>Crystals Collector!</h1>
-	
-	<div class="p-container">
 
-		<p>You will be given a random number at the start of the game.</p>
+	<div class= "main-container">
 
-		<p>There are four crystals below. By clicking on a crystal you will
-	   add a specific amount of points to your total score.
-		</p>
+		<h1>Crystals Collector!</h1>
+		
+		<div class="p-container">
 
-		<p> You win the game by matching your total score to random number, you
-		lose the game if your total score goes above the random number.
-		</p>
+			<p>You will be given a random number at the start of the game.</p>
 
-		<p>The value of each crystal is hidden from you until you click on it.</p>
+			<p>There are four crystals below. By clicking on a crystal you will
+		   add a specific amount of points to your total score.
+			</p>
 
-		<p>Each time when the game starts, the game will change the values of each crystal.
-		</p>
+			<p> You win the game by matching your total score to random number, you
+			lose the game if your total score goes above the random number.
+			</p>
 
-	</div>
+			<p>The value of each crystal is hidden from you until you click on it.</p>
 
-	<div class= "randomNumber"> #
-	</div>
+			<p>Each time when the game starts, the game will change the values of each crystal.
+			</p>
 
-	<div class= "scoreKeeper">keeps track of score
-	</div>
+		</div>
 
-	<div class="clearfix">
-		<img src="assets/images/berg-crystal-clipart-19.png" class="redCrystal" alt="red crystal"/>
+		<div class= "randomNumber"><span id= "randomNumber"></span> 
+		</div>
+
+		<div class= "scoreKeeper">
+			<div class= "userMessage"></div>
+			<div class= "wins">Wins: </div>
+			<div class= "losses">Losses: </div>
+		</div>
+
+		<div class="clearfix">
+			<img src="assets/images/berg-crystal-clipart-19.png" class="redCrystal" alt="red crystal"/>
 
 
-		<img src="assets/images/crystal-clipart-8.png" class="greenCrystal" alt="green crystal"/>
+			<img src="assets/images/crystal-clipart-8.png" class="greenCrystal" alt="green crystal"/>
 
-		<img src="assets/images/Crystals-occur-in-nature-2016012906.png" class="darkblueCrystal" "alt="darkblue crystal"/>
+			<img src="assets/images/1786242.png" class="darkblueCrystal" "alt="darkblue crystal"/>
 
-		<img src="assets/images/diamond-clipart-crystal-14.png" class="lightblueCrystal" alt="lightblue crystal"/>
-	</div>
+			<img src="assets/images/diamond-clipart-crystal-14.png" class="lightblueCrystal" alt="lightblue crystal"/>
+		</div>
 
-	<div class="totalScore"> Your total score is:
-	</div>
+		<div class="totalScore">Your total score is:
+		</div>
 
-	<div class="scoreDisplay"> #
-	</div>
+		<div class="scoreDisplay"> #
+		</div>
+
+	</div> <!-- end main container -->
 
 
 
