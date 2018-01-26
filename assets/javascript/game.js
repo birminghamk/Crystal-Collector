@@ -1,104 +1,66 @@
 $(function () {
 // On page Load:
-	// create variables and set them to default values: 
-	//computerRandomNumber = random number between 19 and 120
-	var computerRandomNumber = Math.floor(Math.random() * ((120-19) + 1) + 19);
-	// array of crystal values = array of number values (4 values, all of them will
-	//		be random number between 1 and 12)
-	var crystalClickedValue = [Math.floor(Math.random() * ((12-1) + 1) + 1)];
-	// wins = 0
-	wins = 0;
-	// losses = 0
-	losses = 0
-	//user total score = 0
-	userTotalScore = 0;
-	//update items on the page:
+	var computerRandomNumber = 0; // variable stores initial computerRandomNumber value
+
+	function createRandomNumber () {
+		computerRandomNumber = Math.floor(Math.random() * ((120-19) + 1) + 19); // creates random number between 19 and 120
+		$("#randomNumber").html(computerRandomNumber); //displays random number on page
+	} 
+
+	createRandomNumber(); // calls createRandomNumber function
+
+	var userGuessSum = 0; // variable stores initial computerRandomNumber value
+	
+	var crystalClickedValue = [Math.floor(Math.random() * ((12-1) + 1) + 1)]; // variable stores crystal values (random number between 1 and 12)
+
+	wins = 0; // variable stores initial wins value
+	
+	losses = 0 // variable stores initial losses value
+	
+	userTotalScore = 0; // variable stores initial user score
+	
 		function update () {
-			$(".wins").html("Wins: " + wins);
-			$(".losses").html("Losses " + losses);
+			$(".wins").html("Wins: " + wins); // displays wins to page
+			$(".losses").html("Losses: " + losses); // displays losses to page
 		}
-		// put wins  on page
-		//put losses  on page
-		// put computerRandomNumber on page
-		// call update items on page function
+
+		function crystalValues () {
+			$("img").each(function () {
+				$(this).attr("data-value", Math.floor(Math.random() * ((12-1) + 1) + 1));
+			});
+		}
+		crystalValues(); // function that assigns random number 1-12 to each crystal image
+
+
+		$("img").on("click", function () { // function user clicks crystal image
+			userGuessSum += parseInt($(this).attr("data-value")); // adds sum each time user clicks a crystal
+			$(".scoreDisplay").html(userGuessSum); // displays user score to page
+
+			if (userGuessSum === computerRandomNumber) { // if user clicks crystals to match random number
+				wins++; // increase wins by 1
+				reset(); // calls reset function
+				update(); // calls update function
+				$(".userMessage").html("You Win!"); // displays  win message to user
+
+			}  else if (userGuessSum > computerRandomNumber) { // if user clicks crystals and goes over random number
+					losses++; // increase losses by 1
+					reset(); // calls reset function
+					update(); // calls update function
+					$(".userMessage").html("Try Again!"); // displays  loss message to user
+				} //END LOSSES CONDITION
+
+		}); // END IF/ELSE IF STATEMENT
+
 	//reset(function):
-		function reset () {
-			userTotalScore = 0;
-			var crystalClickedValue = [Math.floor(Math.random() * ((12-1) + 1) + 1)];
-			var computerRandomNumber = Math.floor(Math.random() * ((120-19) + 1) + 19);
-		}
-		//userTotalScore = 0
-		//comuterRandomNumber  - new random number = new random number using 
-		// array of crystals set to new random number
-	//call reset function
-	reset();
-	// put computerRandomNumber on the page
-	$("#randomNumber").html(computerRandomNumber);
-	//On crystal click
-		//figure out what crystal they clicked and store in a variable
-		// store crystal value in variable (crystalClickedValue)
-		// Add crystalClickedValue to userTotalScore
-		//call update
-		//update the page to put new userTotalScore on the page
-	$(".redCrystal").on("click", function() {
-		var redCrystal = crystalClickedValue;
-		userTotalScore= userTotalScore + crystalClickedValue;
-		update();
-		$(".scoreDisplay").html(userTotalScore);
-		$(".totalScore").html(userTotalScore + crystalClickedValue);
-	}); //END RED CRYSTAL CLICK
+		function reset () { // reset function
+			userGuessSum = 0; // user score goes back to initial value
+			crystalValues(); // calls crystalValues function (gives new random number 1-12)
+			createRandomNumber(); // calls createRandomNumber function (gives new random number 19-120)
+			$(".scoreDisplay").text("0"); // puts initial score to 0
 
-	$(".greenCrystal").on("click", function() {
-		var greenCrystal = crystalClickedValue;
-		userTotalScore= userTotalScore + crystalClickedValue;
-		update();
-		$(".scoreDisplay").html(userTotalScore);
-		$(".totalScore").html(userTotalScore + crystalClickedValue);
-	}); //END GREEN CRYSTAL CLICK
-
-	$(".darkblueCrystal").on("click", function() {
-		var darkblueCrystalClicked = crystalClickedValue;
-		userTotalScore= userTotalScore + crystalClickedValue;
-		update();
-		$(".scoreDisplay").html(userTotalScore);
-		$(".totalScore").html(userTotalScore + crystalClickedValue);
-	}); //END DARKBLUE CRYSTAL CLICK
-
-	$(".lightblueCrystal").on("click", function() {
-		var lightblueCrystalClicked = crystalClickedValue;
-		userTotalScore= userTotalScore + crystalClickedValue;
-		update();
-		$(".scoreDisplay").html(userTotalScore);
-		$(".totalScore").html(userTotalScore + crystalClickedValue);
-	}); //END LIGHTBLUE CRYSTAL CLICK
-
+		} // END RESET FUNCTION
 		
-	// if they win, (userTotalScore = computerRandomNumber)
-	// add 1 to wins
-			// reset computerRandomNumber = new random number between 19 and 120, array of crystal values = new randomnumber between 1 and 12, userTotalscore 0
-			// update the page to put new wins, computerRandomNumber, and userTotalScore to the page
-			//call update
-	if (userTotalScore === computerRandomNumber) {
-		wins++;
-		reset();
-		update();
-		$(".userMessage").html("You Win!");
-		
+	reset(); // calls reset function
 
-	} // END WIN CONDITION
-
-	//if they lose, (userTotalScore > computerRandomNumber) 
-			// add 1 to losses
-			// reset computerRandomNumber = new random number between 19 and 120, array of crystal values = new randomnumber between 1 and 12, userTotalscore 0
-			// update the page to put new wins, computerRandomNumber, and userTotalScore to the page
-			//call update
-		else if (userTotalScore > computerRandomNumber) {
-			losses++;
-			reset();
-			update();
-			$(".userMessage").html("Try Again!");
-		} //END LOSSES CONDITION
-
-
-}); // END READY 
+}); // END READY
 
