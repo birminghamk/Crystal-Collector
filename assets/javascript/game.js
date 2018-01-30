@@ -13,11 +13,11 @@ $(function () {
 	
 	var crystalClickedValue = [Math.floor(Math.random() * ((12-1) + 1) + 1)]; // variable stores crystal values (random number between 1 and 12)
 
-	wins = 0; // variable stores initial wins value
+	var wins = 0; // variable stores initial wins value
 	
-	losses = 0 // variable stores initial losses value
+	var losses = 0 // variable stores initial losses value
 	
-	userTotalScore = 0; // variable stores initial user score
+	var userTotalScore = 0; // variable stores initial user score
 	
 		function update () {
 			$(".wins").html("Wins: " + wins); // displays wins to page
