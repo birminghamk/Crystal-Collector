@@ -1,5 +1,5 @@
 $(function () {
-// On page Load:
+
 	var computerRandomNumber = 0; // variable stores initial computerRandomNumber value
 
 	function createRandomNumber () {
@@ -47,20 +47,19 @@ $(function () {
 					reset(); // calls reset function
 					update(); // calls update function
 					$(".userMessage").html("Try Again!"); // displays  loss message to user
-				} //END LOSSES CONDITION
+				} 
 
-		}); // END IF/ELSE IF STATEMENT
+		}); 
 
-	//reset(function):
 		function reset () { // reset function
 			userGuessSum = 0; // user score goes back to initial value
 			crystalValues(); // calls crystalValues function (gives new random number 1-12)
 			createRandomNumber(); // calls createRandomNumber function (gives new random number 19-120)
 			$(".scoreDisplay").text("0"); // puts initial score to 0
 
-		} // END RESET FUNCTION
+		} 
 		
-	reset(); // calls reset function
+	reset(); 
 
-}); // END READY
+}); 
 
